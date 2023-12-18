@@ -8,3 +8,9 @@
 - Redis pub/sub
 - bootstrap, vus.js.. etc
 - IDE Intellij
+
+
+### 참고 자료
+- https://github.com/codej99/websocket-chat-server/tree/feature/developchatroom
+- https://brunch.co.kr/@springboot/695
+- https://goddaehee.tistory.com/249
