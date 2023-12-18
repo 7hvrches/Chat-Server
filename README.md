@@ -7,4 +7,4 @@
 - Stomp
 - Redis pub/sub
 - bootstrap, vus.js.. etc
-- Intellij
+- IDE Intellij
