@@ -1,6 +1,6 @@
 # websocket을 이용한 채팅 서버 프로젝트입니다.
 
-### 환경 구성(Configuration)
+### 개발 환경(Configuration)
 - Spring boot 3.x
 - Java 17
 - Websocket
