@@ -23,8 +23,16 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.webjars:bootstrap:5.2.3'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+	implementation 'org.springframework.boot:spring-boot-starter-freemarker'
+	implementation 'org.springframework.boot:spring-boot-devtools'
+	implementation 'org.webjars.bower:vue:2.6.14'
+	implementation 'org.webjars.bower:axios:0.17.1'
+	implementation 'org.webjars:sockjs-client:1.5.1'
+	implementation 'org.webjars:stomp-websocket:2.3.4'
+	implementation 'com.google.code.gson:gson:2.8.0'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.oracle.database.jdbc:ojdbc8'
 	annotationProcessor 'org.projectlombok:lombok'
