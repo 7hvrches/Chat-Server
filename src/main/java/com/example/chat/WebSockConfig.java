@@ -1,25 +1,26 @@
 package com.example.chat;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.socket.WebSocketHandler;
-import org.springframework.web.socket.config.annotation.EnableWebSocket;
-import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
-import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
+import org.springframework.messaging.simp.config.MessageBrokerRegistry;
+import org.springframework.web.socket.config.annotation.*;
 
 /*
-    WebSocketHandler 를 이용하여 Websocket 을 활성화하기 위한 Config
+    pub/sub 메시징 구현을 위해 메시지를 발행하는 요청의 prefix 는 /pub 로 시작하도록 설정
+    메시지를 구독하는 요청의 prefix 는 /sub 로 시작하도록 설정
  */
-@RequiredArgsConstructor
 @Configuration
-@EnableWebSocket //Websocket 활성화
-public class WebSockConfig implements WebSocketConfigurer {
-
-    private final WebSocketHandler webSocketHandler;
+@EnableWebSocketMessageBroker //Stomp 사용을 위한 어노테이션
+public class WebSockConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
-    public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        //endpoint 를 /ws/chat 으로 하고, 도메인이 다른 서버에서도 접속 가능하도록 *를 추가
-        registry.addHandler(webSocketHandler, "/ws/chat").setAllowedOrigins("*"); //Websocket의 경우 별개의 프로토콜이므로 HTTP가 아닌 ws로 시작하는 주소 체계를 갖는다
+    public void configureMessageBroker(MessageBrokerRegistry config) {
+        config.enableSimpleBroker("/sub");
+        config.setApplicationDestinationPrefixes("/pub");
+    }
+
+    @Override
+    public void registerStompEndpoints(StompEndpointRegistry registry) {
+        registry.addEndpoint("/ws-stomp").setAllowedOriginPatterns("*")
+                .withSockJS();
     }
 }
