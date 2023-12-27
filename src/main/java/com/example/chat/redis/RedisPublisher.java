@@ -6,6 +6,10 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.stereotype.Service;
 
+/**
+ * 채팅방에 입장 후 메시지를 작성하면 해당 메시지를 Redis 채팅방에 발행하는 기능의 서비스
+ * 대기하고 있던 redis 구독 서비스가 메시지를 처리
+ */
 @RequiredArgsConstructor
 @Service
 public class RedisPublisher {
