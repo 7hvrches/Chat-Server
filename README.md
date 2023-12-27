@@ -5,7 +5,7 @@
 - Java 17
 - Websocket
 - Stomp
-- Redis pub/sub
+- Redis pub/sub (Spring boot 2.0 이후부터 사용 방법이 조금씩 다릅니다)
 - bootstrap, vus.js.. etc
 - IDE Intellij
 
