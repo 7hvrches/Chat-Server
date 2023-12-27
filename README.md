@@ -15,4 +15,6 @@
 - https://brunch.co.kr/@springboot/695
 - https://tecoble.techcourse.co.kr/post/2022-10-04-active_profiles/
 - https://doosicee.tistory.com/entry/Redis%EB%A5%BC-SpringBoot%EC%97%90-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0
+- https://sunghs.tistory.com/90
+  
 etc...
