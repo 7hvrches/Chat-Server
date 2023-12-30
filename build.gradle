@@ -21,6 +21,7 @@ repositories {
 	mavenCentral()
 }
 
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.webjars:bootstrap:5.2.3'
@@ -41,6 +42,21 @@ dependencies {
 	//embedded-redis
 	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 	implementation 'it.ozimov:embedded-redis:0.7.2'
+
+	//spring security
+	implementation "org.springframework.boot:spring-boot-starter-security"
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+
+//	implementation 'org.glassfish.jaxb:jaxb-runtime:4.0.2'
+//	implementation 'javax.xml.bind:jaxb-api:2.4.0-b180830.0359'
+//	implementation 'com.sun.xml.bind:jaxb-impl:4.0.2'
+//	implementation 'com.sun.xml.bind:jaxb-core:4.0.2'
+//
+//	// JAX-B dependencies for JDK 9+
+//	implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.0'
+//	implementation 'org.glassfish.jaxb:jaxb-runtime:4.0.2'
+
+	implementation 'javax.xml.bind:jaxb-api:2.4.0-b180830.0359'
 }
 
 tasks.named('test') {
