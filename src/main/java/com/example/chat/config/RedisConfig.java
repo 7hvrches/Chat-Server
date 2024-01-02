@@ -19,9 +19,9 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * redis의 pub/sub 기능을 이용할 것이므로 redisMessageListenerContainer 설정을 추가
  * 애플리케이션에서 redis 사용을 위해 redisTemplate 설정을 추가
  * pub/sub 는 대화를 하거나/대화를 보는 행위
- * <p>
- * 추가로 스프링부트 2.0 이후부턴 redis.start()와 stop()을 쓸 필요가 없어졌다
- * RedisTemplate와 StringTemplate를 자동생성 되어서 따로 빈에 등록 안해도 된다고 한다
+ *
+ * 참고로 스프링부트 2.0 이후부턴 redis.start()와 stop()을 쓸 필요가 없어졌다
+ * RedisTemplate와 StringTemplate이 자동생성 되어서 따로 빈에 등록 안해도 된다고 한다
  */
 @Profile("local")
 @Configuration
@@ -54,6 +54,9 @@ public class RedisConfig {
         return redisTemplate;
     }
 
+    /**
+     * redis pub/sub 기능 사용을 위한 설정
+     */
     @Bean
     public RedisMessageListenerContainer redisMessageListenerContainer(RedisConnectionFactory connectionFactory) {
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
@@ -71,7 +74,7 @@ public class RedisConfig {
 
 
     /**
-     * redis 에 발행(publish)된 메시지 처리를 위한 리스너 설정
+     * redis에 발행(publish)된 메시지 처리를 위한 리스너 설정
      */
     @Bean
     public RedisMessageListenerContainer redisMessageListener(RedisConnectionFactory connectionFactory,
