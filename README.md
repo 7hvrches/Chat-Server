@@ -22,8 +22,9 @@ Message Broker (Redis 서버):</br>
 Redis 서버가 메시지를 받아 해당 채널을 구독하는 모든 구독자들에게 메시지를 전달합니다.</br>
 Subscriber (구독자):</br>
 Redis에서 특정 채널을 구독한 클라이언트는 새로운 메시지를 수신하고 처리합니다.</br>
-![](../../Users/JungDoHyeon/Desktop/redis-publish-subscriber.png)
+![redis-publish-subscriber](https://github.com/7hvrches/Chat-Server/assets/14012685/c32f5dbd-1597-4c6e-9012-a7fcae127f39)
 (출처: https://www.geeksforgeeks.org/redis-publish-subscribe/)</br></br>
+
 <b>자세한 로직은 소스코드 주석 참고</b></br>
 
 
