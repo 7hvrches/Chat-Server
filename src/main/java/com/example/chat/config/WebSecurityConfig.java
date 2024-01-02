@@ -16,7 +16,6 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @EnableWebSecurity
 public class WebSecurityConfig {
 
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
@@ -50,11 +49,12 @@ public class WebSecurityConfig {
                                 .defaultSuccessUrl("/chat/room", true) //정상적으로 인증 성공 시 이동하는 페이지
                                 .permitAll()
                 )
-                .logout(withDefaults())                         //로그아웃은 기본설정으로
-                .rememberMe(withDefaults());
+                .logout(withDefaults())                         //로그아웃 기본설정으로
+                .rememberMe(withDefaults());                    //자동 로그인 기능을 활성화 기본설정으로
         return http.build();
     }
 
+    //사용자 계정을 in-memory 방식으로 생성
     @Bean
     public UserDetailsService users() {
         User.UserBuilder users = User.withDefaultPasswordEncoder();

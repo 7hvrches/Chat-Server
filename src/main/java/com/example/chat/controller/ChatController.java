@@ -24,7 +24,10 @@ public class ChatController {
     private final ChatService chatService;
 
     /**
-     * websocket "/pub/chat/message"로 들어오는 메시징을 처리한다.
+     * WebSocket 클라이언트 요청 메시지 핸들러
+     * "/pub/chat/message"로 들어오는 메시징을 처리한다.
+     * /pub: 메시지를 발행하는 작업
+     * /chat/message: 특정 채널이나 주제를 가리킴
      */
     @MessageMapping("/chat/message")
     public void message(ChatMessage message, @Header("token") String token) {

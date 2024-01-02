@@ -20,17 +20,20 @@ public class WebSockConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
+        //메시지 브로커가 /sub으로 시작하는 주제를 허용
         config.enableSimpleBroker("/sub");
+        // /pub으로 시작하는 메시지가 @MessageMapping으로 라우팅되도록 설정
         config.setApplicationDestinationPrefixes("/pub");
     }
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
+        // /ws-stomp 엔드포인트를 통해 websocket 연결을 활성화
         registry.addEndpoint("/ws-stomp").setAllowedOriginPatterns("*")
-                .withSockJS(); //sock.js를 통하여 낮은 버전의 브라우저에서도 websocket이 동작할수 있게 합니다.
+                .withSockJS(); //sock.js를 통하여 낮은 버전의 브라우저에서도 websocket이 동작할 수 있게 합니다.
     }
 
-    //StompHandler 가 Websocket 앞단에서 token 을 체크할 수 있도록 인터셉터로 설정
+    //StompHandler가 websocket 앞단에서 token을 체크할 수 있도록 인터셉터로 설정
     @Override
     public void configureClientInboundChannel(ChannelRegistration registration) {
         registration.interceptors(stompHandler);
